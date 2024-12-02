@@ -2,7 +2,7 @@ import styles from "./Login.module.css";
 import imgLogo from "./../../../../assets/images/PMSLogo.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { AUTH_URL, axiosInstanceUrl } from "../../../../services/EndPoints";
+import { AUTH_URL, axiosInstance, axiosInstanceUrl } from "../../../../services/EndPoints";
 import { useState } from "react";
 import { EMAIL_VALIDATION, PASWORD_VALIDATION } from '../../../../services/Validation/Validation';
 
@@ -23,6 +23,7 @@ export default function Login() {
   const onSubmit = async (data: loginForm) => {
     try {
       const response = await axiosInstanceUrl.post(AUTH_URL.LOGIN, data);
+      localStorage.setItem("tokenums", response.data.token);
       console.log(response);
       navigate("/dashboard")
     } catch (error) {

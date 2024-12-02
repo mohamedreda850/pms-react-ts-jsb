@@ -6,7 +6,7 @@ export const imageBaseURL = 'https://upskilling-egypt.com:3003'
 export const axiosInstanceURL = axios.create({baseURL: baseURL})
 
 export const axiosInstance = axios.create({baseURL: baseURL, headers: {
-    Authorization: localStorage.getItem('token')
+    Authorization: localStorage.getItem("tokenums")
 }})
 
 
@@ -21,10 +21,11 @@ export const AUTH_URL = {
 }
 
 // Project Endpoints
-// export const PROJECT_URL = {
-//     GET_PROJECTS: `/Project/`,
-//     GET_PROJECT: (id) => `/Project/${id}`,
-//     POST_PROJECT: `/Project`,
-//     PUT_PROJECT: (id) => `/Project/${id}`,
-//     DELETE_PROJECT: (id) => `/Project/{id}`
-// }
+export const PROJECT_URL = {
+    GET_PROJECTS: `/Project/`,
+    GET_PROJECT: (id:number) => `/Project/${id}`,
+    POST_PROJECT: `/Project`,
+    PUT_PROJECT: (id:number) => `/Project/${id}`,
+    DELETE_PROJECT: (id:number) => `/Project/${id}`,
+    GIT_PROJECTS_FOR_MANAGER:`/Project/manager`
+}

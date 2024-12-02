@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 import { EMAIL_VALIDATION, passwordValidtion } from '../../../../services/validation';
 import logo from '../../../../assets/images/logo.png';
+import styles from "./register.module.css";
 
 
 
@@ -57,25 +58,25 @@ export default function Register() {
 
   return (
     <>
-    <div className='auth-container'>
+    <div  className={styles['auth-container']}>
     <div className="container-fluid bg-overlay">
       <div className="row vh-100 justify-content-center align-items-center ">
         <div className="col-md-8 col-lg-6   px-5 py-3 ">
-          <div className='container rounded rounded-2'>
-            <div className="logo-container  text-center">
+          <div   className={`${styles["container" ]} rounded rounded-2`}>
+            <div className="logo-container  text-center" >
               <img className='w-25' src={logo} alt=''/>
             </div>
-            <div className="title my-3">
+            <div  className={`${styles['title' ]}  my-3`}>
               <span className=''>Welcome to PMS</span>
               <h3 className='h5'>Create New Account</h3>
               
             </div>
             <form onSubmit={handleSubmit(onSubmit)} >
-            <input className='input-file' type='file'  {...register("profileImage")}/>
+            <input  className={styles['input-file']} type='file'  {...register("profileImage")}/>
               <div className='d-flex'>
                 {/* userName  */}
-              <div className='form-group px-2' >
-              <div className="input-group mb-2 input-gr">
+              <div   className={`${styles['form-group' ]}  px-2`}>
+              <div  className={`${styles['input-gr' ]}  input-group mb-2`}>
               <label>User Name</label>
               <input 
               
@@ -93,7 +94,7 @@ export default function Register() {
             </div>
             {errors?.userName&&<span className='text-danger'>{errors.userName.message}</span>}
             {/* country  */}
-            <div className="input-group mb-2 input-gr">
+            <div className={`${styles['input-gr' ]}  input-group mb-2`}>
             <label>Country</label>
               <input 
               
@@ -110,7 +111,7 @@ export default function Register() {
             </div>
             {errors?.country&&<span className='text-danger'>{errors.country.message}</span>}
             {/* password  */}
-            <div className="input-group mb-2 input-gr">
+            <div className={`${styles['input-gr' ]}  input-group mb-2`}>
               <label>Password</label>
               <input 
               type= {isPasswordVisible ? "text": "password"} 
@@ -133,8 +134,8 @@ export default function Register() {
           
               </div>
               {/* email  */}
-              <div className='form-group px-2'>
-              <div className="input-group mb-2 input-gr">
+              <div className={`${styles['form-group' ]}  px-2`}>
+              <div className={`${styles['input-gr' ]}  input-group mb-2`}>
               <label>E-mail</label>
               <input 
               // type= {isPasswordVisible ? "text": "password"}
@@ -148,7 +149,7 @@ export default function Register() {
             </div>
             {errors?.email&&<span className='text-danger'>{errors.email.message}</span>}
              {/* phoneNumber  */}
-            <div className="input-group mb-2 input-gr">
+            <div className={`${styles['input-gr' ]}  input-group mb-2`}>
             <label>Phone Number</label>
               <input 
               
@@ -166,7 +167,7 @@ export default function Register() {
             </div>
             {errors?.phoneNumber&&<span className='text-danger'>{errors.phoneNumber.message}</span>}
             {/* confirmPassword */}
-            <div className="input-group mb-2 input-gr">
+            <div className={`${styles['input-gr' ]}  input-group mb-2`}>
             <label>Confirm Password</label>
               <input 
               type = {isPasswordVisible ? "text": "password"} 
@@ -189,7 +190,7 @@ export default function Register() {
               </div>
             
            
-            <button className='btn btn-submit w-75 my-2'>Save</button>
+            <button className={`${styles['btn-submit' ]} btn  w-75 my-2`}>Save</button>
             </form>
           </div>
         </div>
